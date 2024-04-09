@@ -59,8 +59,8 @@ func (d *Doppler) GetSecrets() (map[string]string, error) {
 	params := url.Values{}
 	params.Add("project", d.Project)
 	params.Add("config", d.Environment)
-	url := fmt.Sprintf("%s/secrets?%s", d.BasicURL, params.Encode())
-	req, err := http.NewRequest("GET", url, nil)
+	endpointUrl := fmt.Sprintf("%s/secrets?%s", d.BasicURL, params.Encode())
+	req, err := http.NewRequest("GET", endpointUrl, nil)
 	if err != nil {
 		return nil, err
 	}
